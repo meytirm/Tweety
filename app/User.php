@@ -45,6 +45,11 @@ class User extends Authenticatable
         return Tweet::whereIn('user_id', $friends)->orWhere('user_id', $this->id)->latest()->get();
     }
 
+    public function tweets()
+    {
+        return $this->hasMany(Tweet::class);
+    }
+
     public function follow(User $user)
     {
         return $this->follows()->save($user);
@@ -52,7 +57,6 @@ class User extends Authenticatable
 
     public function follows()
     {
-        dd($this);
         return $this->belongsToMany(User::class, 'follows', 'user_id', 'following_user_id');
     }
 }
