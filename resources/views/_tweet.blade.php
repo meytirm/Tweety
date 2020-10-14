@@ -1,8 +1,9 @@
-<div class="flex p-4 border border-b border-b-gray-400">
+<div class="flex p-4 {{ $loop->last ? '' : 'border border-b border-b-gray-400' }}">
     <div class="mr-2 flex-shrink-0">
         <a href="{{ route('profile', $tweet->user) }}">
-            <img src="https://api.adorable.io/avatars/50/abott@adorable.png"
+            <img src="{{ $tweet->user->avatar }}"
                  alt=""
+                 width="50"
                  class="rounded-full mr-2">
         </a>
     </div>

@@ -25,13 +25,16 @@
         </a>
     </li>
     <li>
-        <a class="font-bold text-lg mb-4 block" href="{{ route('profile', auth()->user()) }}">
+        <a class="font-bold text-lg mb-4 block" href="{{ auth()->user()->ProfilePath() }}">
             Profile
         </a>
     </li>
     <li>
-        <a class="font-bold text-lg mb-4 block" href="#">
-            More
-        </a>
+        <form action="/logout" method="post">
+            @csrf
+            <button type="submit" class="font-bold text-lg mb-4">
+                Logout
+            </button>
+        </form>
     </li>
 </ul>
