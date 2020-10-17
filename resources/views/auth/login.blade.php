@@ -1,16 +1,14 @@
 @component('components.master')
-<div class="container mx-auto px-6 py-6 bg-gray-400">
-    <div class="row justify-content-center">
+<div class="container mx-auto flex justify-center">
+    <div class="px-6 py-4 bg-gray-400 rounded-lg">
         <div class="col-md-8">
-            <div class="card">
                 <div class="font-bold text-lg mb-4">{{ __('Login') }}</div>
 
-                <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                        <div class="form-group row mb-6">
+                            <label for="email" class="block mb-2 uppercase font-bold text-xs text-gray-700">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -63,8 +61,6 @@
                             </div>
                         </div>
                     </form>
-                </div>
-            </div>
         </div>
     </div>
 </div>
